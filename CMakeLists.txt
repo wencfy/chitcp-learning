@@ -14,6 +14,9 @@ set(PROTOBUF_DIRS ${CMAKE_CURRENT_BINARY_DIR}/protobuf
         ${CMAKE_CURRENT_BINARY_DIR}/protobuf/src/chitcpd-protobuf
         src/chitcpd-protobuf)
 
+link_directories(/opt/homebrew/lib)
+include_directories(/opt/homebrew/include)
+
 include_directories(include)
 add_definitions(-D_GNU_SOURCE)
 
@@ -24,7 +27,7 @@ add_library(chitcp SHARED ${LIB_SRCS} ${PROTO_SRCS} ${PROTO_HDRS})
 
 
 target_include_directories(chitcp PRIVATE ${PROTOBUF_DIRS})
-target_link_libraries(chitcp m)
+target_link_libraries(chitcp m protobuf-c)
 
 
 # chitcpd
