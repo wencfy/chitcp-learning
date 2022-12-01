@@ -135,7 +135,7 @@ void* chitcpd_handler_dispatch(void *args)
     serverinfo_t *si = ha->si;
     socket_t client_socket = ha->client_socket;
     pthread_mutex_t *handler_lock = ha->handler_lock;
-    pthread_setname_np(pthread_self(), ha->thread_name);
+    pthread_setname_np(ha->thread_name);
     ChitcpdMsg *req;
     ChitcpdMsg resp_outer = CHITCPD_MSG__INIT;
     ChitcpdResp resp_inner = CHITCPD_RESP__INIT;

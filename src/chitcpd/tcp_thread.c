@@ -222,7 +222,7 @@ void* chitcpd_tcp_thread_func(void *args)
     tcp_thread_args_t *tta = (tcp_thread_args_t *) args;
     serverinfo_t *si = tta->si;
     chisocketentry_t *entry = tta->entry;
-    pthread_setname_np(pthread_self(), tta->thread_name);
+    pthread_setname_np(tta->thread_name);
     active_chisocket_state_t *socket_state = &entry->socket_state.active;
     tcp_data_t *tcp_data = &socket_state->tcp_data;
     int done = FALSE;
